@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const API_URL='https://api.loteriasapi.com/api/v1/results/euromillones';
+const API_URL='https://api.loteriasapi.com/api/v1/results/euromillones/range';
 const DATA_FILE='data/results.json';
 const players=[
   {name:'Manolax',numbers:[7,11,14,16,22],stars:[3,7]},
