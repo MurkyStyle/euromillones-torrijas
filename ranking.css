@@ -33,6 +33,28 @@
   font-size: .95rem;
 }
 
+.rank-person,
+.player-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid rgba(222, 216, 255, .75);
+  background: #344658;
+}
+
+.avatar-small {
+  width: 32px;
+  height: 32px;
+}
+
 .global-total-row td {
   border-top: 2px solid #70869a;
   border-bottom: 0;

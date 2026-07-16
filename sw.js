@@ -1,5 +1,5 @@
-const CACHE_NAME='torrijas-pwa-v4';
-const APP_FILES=['./','./index.html','./styles.css','./ranking.css','./app.js','./manifest.webmanifest','./icons/torrijas-icon.svg'];
+const CACHE_NAME='torrijas-pwa-v5';
+const APP_FILES=['./','./index.html','./styles.css','./ranking.css','./app.js','./manifest.webmanifest','./icons/torrijas-icon.svg','./assets/avatars/manolax.png','./assets/avatars/karim.png','./assets/avatars/piti.png','./assets/avatars/grego.png','./assets/avatars/rosky.png','./assets/avatars/irish.png'];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_FILES)).then(()=>self.skipWaiting()));
