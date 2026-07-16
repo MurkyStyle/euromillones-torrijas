@@ -18,7 +18,7 @@ const today=new Date();
 // El endpoint de rango de la API devuelve actualmente 400. Consultamos los
 // martes y viernes recientes individualmente: es el formato que sí acepta.
 const drawDates=[];
-for(let daysAgo=0;daysAgo<=10;daysAgo+=1){
+for(let daysAgo=0;daysAgo<=7;daysAgo+=1){
   const date=new Date(today);
   date.setUTCDate(date.getUTCDate()-daysAgo);
   if([2,5].includes(date.getUTCDay()))drawDates.push(isoDate(date));
