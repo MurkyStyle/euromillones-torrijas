@@ -1,0 +1,33 @@
+name: Actualizar resultados de Euromillones
+
+on:
+  schedule:
+    - cron: '0,30 20-22 * * 2,5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Consultar y calcular resultados
+        env:
+          LOTTERY_API_KEY: ${{ secrets.LOTTERY_API_KEY }}
+        run: node scripts/sync-euromillones.mjs
+      - name: Publicar cambios si hay novedades
+        run: |
+          if git diff --quiet; then
+            echo "Sin resultados nuevos"
+            exit 0
+          fi
+          git config user.name "Euromillones Torrijas Bot"
+          git config user.email "actions@github.com"
+          git add data/results.json
+          git commit -m "Actualizar resultados de Euromillones"
+          git push
