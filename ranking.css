@@ -68,6 +68,34 @@
   box-shadow: 0 0 0 2px rgba(39, 185, 111, .2);
 }
 
+.account-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  text-align: right;
+}
+
+.account-balance {
+  color: #57dd98;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+
+.play-weeks {
+  color: #a8bacb;
+  font-size: .9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.play-weeks.low-balance {
+  color: #ff7979;
+}
+
 .global-total-row td {
   border-top: 2px solid #70869a;
   border-bottom: 0;
@@ -205,5 +233,12 @@ input { background: #17222c; border-color: #4a5c6d; color: var(--ink); }
     align-items: stretch;
     flex-direction: column;
     min-width: 0;
+  }
+
+  .combinations-title,
+  .account-status {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
   }
 }

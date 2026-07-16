@@ -1,4 +1,4 @@
-const CACHE_NAME='torrijas-pwa-v7';
+const CACHE_NAME='torrijas-pwa-v8';
 const APP_FILES=['./','./index.html','./styles.css','./ranking.css','./app.js','./manifest.webmanifest','./icons/torrijas-icon.svg','./assets/avatars/manolax.png','./assets/avatars/karim.png','./assets/avatars/piti.png','./assets/avatars/grego.png','./assets/avatars/rosky.png','./assets/avatars/irish.png'];
 
 self.addEventListener('install',event=>{
