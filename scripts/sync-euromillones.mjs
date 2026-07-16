@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const API_URL='https://api.loteriasapi.com/api/v1/results/euromillones/range';
+const API_URL='https://api.loteriasapi.com/api/v1/results/euromillones/date';
 const DATA_FILE='data/results.json';
 const players=[
   {name:'Manolax',numbers:[7,11,14,16,22],stars:[3,7]},
@@ -15,12 +15,25 @@ if(!process.env.LOTTERY_API_KEY)throw new Error('Falta el secreto LOTTERY_API_KE
 
 const isoDate=date=>date.toISOString().slice(0,10);
 const today=new Date();
-const from=new Date(today);from.setUTCDate(from.getUTCDate()-7);
-const query=new URLSearchParams({from:isoDate(from),to:isoDate(today),limit:'100',sort:'drawDate',order:'asc'});
-const response=await fetch(`${API_URL}?${query}`,{headers:{'X-API-Key':process.env.LOTTERY_API_KEY,Accept:'application/json'}});
-if(!response.ok)throw new Error(`La API devolvió ${response.status}.`);
-const payload=await response.json();
-if(!payload.success||!Array.isArray(payload.data))throw new Error('Respuesta de resultados no válida.');
+// El endpoint de rango de la API devuelve actualmente 400. Consultamos los
+// martes y viernes recientes individualmente: es el formato que sí acepta.
+const drawDates=[];
+for(let daysAgo=0;daysAgo<=10;daysAgo+=1){
+  const date=new Date(today);
+  date.setUTCDate(date.getUTCDate()-daysAgo);
+  if([2,5].includes(date.getUTCDay()))drawDates.push(isoDate(date));
+}
+const responses=await Promise.all(drawDates.map(async date=>{
+  const response=await fetch(`${API_URL}/${date}`,{headers:{'X-API-Key':process.env.LOTTERY_API_KEY,Accept:'application/json'}});
+  if(!response.ok){
+    const detail=await response.text();
+    throw new Error(`La API devolvió ${response.status} para ${date}: ${detail.slice(0,300)}`);
+  }
+  const payload=await response.json();
+  if(!payload.success||!Array.isArray(payload.data))throw new Error(`Respuesta de resultados no válida para ${date}.`);
+  return payload.data;
+}));
+const results=responses.flat();
 
 const matchCount=(picked,winning)=>picked.filter(number=>winning.includes(number)).length;
 const categoryKey=name=>{
@@ -31,7 +44,8 @@ const categoryKey=name=>{
 };
 const prizeMap=prizes=>Object.fromEntries((prizes||[]).map(prize=>[categoryKey(prize.categoryName),Number(prize.prizeAmount||0)/100]).filter(([key,value])=>key&&Number.isFinite(value)&&value>0));
 const formatDraw=result=>{
-  const numbers=(result.combination||[]).map(Number);
+  // La API incluye también las dos estrellas al final de `combination`.
+  const numbers=(result.combination||[]).slice(0,5).map(Number);
   const stars=(result.resultData?.estrellas||[]).map(Number);
   if(numbers.length!==5||stars.length!==2)return null;
   const categories=prizeMap(result.prizes);
@@ -42,7 +56,7 @@ const formatDraw=result=>{
 
 const existing=JSON.parse(await readFile(DATA_FILE,'utf8'));
 const updated=new Map((existing.draws||[]).map(draw=>[draw.date,draw]));
-payload.data.map(formatDraw).filter(Boolean).filter(draw=>draw.date>='2025-01-01').forEach(draw=>updated.set(draw.date,draw));
+results.map(formatDraw).filter(Boolean).filter(draw=>draw.date>='2025-01-01').forEach(draw=>updated.set(draw.date,draw));
 const nextDraws=[...updated.values()].sort((a,b)=>a.date.localeCompare(b.date));
 if(JSON.stringify(nextDraws)!==JSON.stringify(existing.draws||[])){
   const output={updatedAt:new Date().toISOString(),draws:nextDraws};
