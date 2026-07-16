@@ -1,9 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="beer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd85d"/>
+      <stop offset="1" stop-color="#de8b16"/>
+    </linearGradient>
+  </defs>
   <rect width="512" height="512" rx="112" fill="#16212b"/>
-  <circle cx="256" cy="256" r="172" fill="#2b3b4b" stroke="#b6a8ff" stroke-width="16"/>
-  <circle cx="256" cy="256" r="122" fill="#f3c94d"/>
-  <circle cx="218" cy="210" r="18" fill="#16212b"/>
-  <circle cx="294" cy="210" r="18" fill="#16212b"/>
-  <path d="M190 290c37 35 95 35 132 0" fill="none" stroke="#16212b" stroke-linecap="round" stroke-width="18"/>
-  <text x="256" y="403" text-anchor="middle" fill="#edf3fb" font-family="Arial, sans-serif" font-size="52" font-weight="700">T</text>
+  <circle cx="256" cy="256" r="184" fill="#243746" stroke="#b6a8ff" stroke-width="14"/>
+  <g transform="rotate(-12 186 266)">
+    <path d="M112 173h142v184a28 28 0 0 1-28 28h-86a28 28 0 0 1-28-28z" fill="url(#beer)" stroke="#fff0ad" stroke-width="12"/>
+    <path d="M254 218h31a44 44 0 0 1 0 88h-31" fill="none" stroke="#fff0ad" stroke-width="18" stroke-linecap="round"/>
+    <path d="M124 176c10-29 37-34 53-16 14-22 47-18 56 5 22-11 47 6 39 32-9 22-41 14-66 13-35-2-81 14-92-12-4-9 1-17 10-22z" fill="#fff9e6"/>
+    <path d="M145 255h75M145 300h75" stroke="#fff0ad" stroke-width="10" opacity=".55" stroke-linecap="round"/>
+  </g>
+  <g transform="rotate(12 324 266)">
+    <path d="M258 173h142v184a28 28 0 0 1-28 28h-86a28 28 0 0 1-28-28z" fill="url(#beer)" stroke="#fff0ad" stroke-width="12"/>
+    <path d="M258 218h-31a44 44 0 0 0 0 88h31" fill="none" stroke="#fff0ad" stroke-width="18" stroke-linecap="round"/>
+    <path d="M270 176c10-29 37-34 53-16 14-22 47-18 56 5 22-11 47 6 39 32-9 22-41 14-66 13-35-2-81 14-92-12-4-9 1-17 10-22z" fill="#fff9e6"/>
+    <path d="M291 255h75M291 300h75" stroke="#fff0ad" stroke-width="10" opacity=".55" stroke-linecap="round"/>
+  </g>
+  <circle cx="256" cy="368" r="54" fill="#b6a8ff" stroke="#edf3fb" stroke-width="9"/>
+  <text x="256" y="387" text-anchor="middle" fill="#16212b" font-family="Arial, sans-serif" font-size="58" font-weight="900">€</text>
 </svg>
