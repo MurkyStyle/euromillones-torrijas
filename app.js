@@ -1,8 +1,8 @@
 const players=[
   {name:'Manolax',numbers:[7,11,14,16,22],stars:[3,7],avatar:'assets/avatars/manolax.png'},
-  {name:'Karim',numbers:[7,9,13,23,26],stars:[7,9],avatar:'assets/avatars/karim.png'},
-  {name:'Piti',numbers:[3,17,23,35,49],stars:[5,8],avatar:'assets/avatars/piti.png'},
-  {name:'Grego',numbers:[9,23,25,30,31],stars:[3,7],avatar:'assets/avatars/grego.png'},
+  {name:'Karim',numbers:[7,9,13,23,26],stars:[7,9],avatar:'assets/avatars/karim.png',paid:true},
+  {name:'Piti',numbers:[3,17,23,35,49],stars:[5,8],avatar:'assets/avatars/piti.png',paid:true},
+  {name:'Grego',numbers:[9,23,25,30,31],stars:[3,7],avatar:'assets/avatars/grego.png',paid:true},
   {name:'Rosky',numbers:[9,17,22,28,49],stars:[1,3],avatar:'assets/avatars/rosky.png'},
   {name:'Irish',numbers:[6,7,18,22,50],stars:[7,12],avatar:'assets/avatars/irish.png'}
 ];
@@ -89,7 +89,7 @@ const balls=(nums,stars=[])=>`<div class="number-row">${nums.map(n=>`<span class
 function save(){localStorage.setItem('euromillonesDraws',JSON.stringify(draws));render()}
 function renderYearTabs(){const seasonYear=new Date(seasonStart+'T12:00').getFullYear()+1;document.querySelector('#yearTabs').innerHTML=`<button class="year-tab active" type="button">Temporada ${seasonYear}</button>`}
 function avatar(player,small=false){return `<img class="avatar ${small?'avatar-small':''}" src="${player.avatar}" alt="${player.name}" loading="lazy">`}
-function renderPlayers(){document.querySelector('#playersGrid').innerHTML=players.map(p=>`<article class="player-card"><div class="player-head"><span class="player-name">${avatar(p)}${p.name}</span><span>${euro(totalFor(p.name))}</span></div>${balls(p.numbers,p.stars)}</article>`).join('')}
+function renderPlayers(){document.querySelector('#playersGrid').innerHTML=players.map(p=>`<article class="player-card"><div class="player-head"><span class="player-name">${avatar(p)}${p.name}${p.paid?'<span class="payment-status" title="Ingreso realizado" aria-label="Ingreso realizado">€</span>':''}</span><span>${euro(totalFor(p.name))}</span></div>${balls(p.numbers,p.stars)}</article>`).join('')}
 function totalFor(name){return activeDraws().reduce((sum,d)=>sum+(d.prizes[name]||0),0)}
 function renderSummary(){const scoped=activeDraws(),prizes=players.reduce((sum,p)=>sum+totalFor(p.name),0),leader=[...players].sort((a,b)=>totalFor(b.name)-totalFor(a.name))[0],latest=[...scoped].sort((a,b)=>b.date.localeCompare(a.date))[0];document.querySelector('#summaryCards').innerHTML=[['Sorteos oficiales',scoped.length],['Último resultado',latest?new Date(latest.date+'T12:00').toLocaleDateString('es-ES'):'—'],['Premios obtenidos',euro(prizes)],['Mayor premio acumulado',leader?`${leader.name} · ${euro(totalFor(leader.name))}`:'—']].map(([l,v])=>`<article class="stat-card"><span>${l}</span><strong>${v}</strong></article>`).join('');const byYear={};scoped.forEach(d=>{const y=d.date.slice(0,4);byYear[y]=(byYear[y]||0)+Object.values(d.prizes).reduce((a,b)=>a+b,0)});const vals=Object.values(byYear),max=Math.max(...vals,1);document.querySelector('#yearlyChart').innerHTML=Object.entries(byYear).length?Object.entries(byYear).sort().map(([y,v])=>`<div class="year-bar"><div class="bar" style="height:${Math.max(8,v/max*80)}px"></div><strong>${y}</strong><span>${euro(v)}</span></div>`).join(''):'<div class="empty"><strong>Sin datos anuales todavía.</strong><span>La evolución aparecerá al recibir resultados oficiales.</span></div>'}
 function frequencies(key,max){const counts={};activeDraws().forEach(d=>d[key].forEach(n=>counts[n]=(counts[n]||0)+1));return Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,max)}

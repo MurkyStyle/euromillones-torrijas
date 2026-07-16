@@ -55,6 +55,19 @@
   height: 46px;
 }
 
+.payment-status {
+  display: inline-grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #27b96f;
+  color: #fff;
+  font-size: .83rem;
+  font-weight: 900;
+  box-shadow: 0 0 0 2px rgba(39, 185, 111, .2);
+}
+
 .global-total-row td {
   border-top: 2px solid #70869a;
   border-bottom: 0;
