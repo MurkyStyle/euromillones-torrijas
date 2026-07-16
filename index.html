@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Euromillones · Los Torrijas</title>
+    <meta name="theme-color" content="#16212b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/torrijas-icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="ranking.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <h1>Euromillones Torrijas</h1>
+        </div>
+        <div class="header-actions">
+          <button id="notifyButton" class="button secondary">Activar avisos de Windows</button>
+          <button id="whatsappButton" class="button whatsapp">Compartir por WhatsApp</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="Secciones">
+        <button class="tab active" data-view="resumen">Resumen</button>
+        <button class="tab" data-view="estadisticas">Estadísticas</button>
+        <button class="tab" data-view="historial">Historial</button>
+        <button class="tab" data-view="global">Global</button>
+      </nav>
+
+      <section id="resumen" class="view active">
+        <div class="stats-grid" id="summaryCards"></div>
+        <section class="panel year-panel">
+          <div><p class="eyebrow">TEMPORADA ACTIVA</p><h2>Consultar por temporada</h2><p>La fecha de vuestra fiesta inicia la temporada del año siguiente e incluye todos los sorteos desde ese día.</p></div>
+          <div id="yearTabs" class="year-tabs" aria-label="Años de Euromillones"></div>
+        </section>
+        <section class="panel season-panel">
+          <div><p class="eyebrow">TEMPORADA DE LOS TORRIJAS</p><h2>Inicio de cálculo</h2><p>Usa la fecha de vuestra fiesta anual. Solo se contabilizarán los sorteos celebrados desde ese día.</p></div>
+          <div class="season-control"><label for="seasonStart">Fecha de la fiesta<input id="seasonStart" type="date" /></label><button id="saveSeason" class="button primary">Aplicar fecha</button></div>
+        </section>
+        <section class="panel">
+          <div class="panel-title"><div><p class="eyebrow">COMBINACIONES ACTIVAS</p><h2>Los números de Los Torrijas</h2></div><span class="pill">6 jugadores</span></div>
+          <div id="playersGrid" class="players-grid"></div>
+        </section>
+        <section class="panel"><div class="panel-title"><div><p class="eyebrow">POR AÑO</p><h2>Premios acumulados</h2></div></div><div id="yearlyChart" class="yearly-chart"></div></section>
+      </section>
+
+      <section id="estadisticas" class="view">
+        <section class="panel"><div class="panel-title"><div><p class="eyebrow">RANKING</p><h2>Premios por amigo y año</h2></div></div><div id="rankingTable" class="table-wrap"></div></section>
+        <div class="stats-grid" id="statCards"></div>
+        <section class="two-columns">
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">FRECUENCIA</p><h2>Números más sorteados</h2></div></div><div id="numberStats" class="frequency-list"></div></article>
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">FRECUENCIA</p><h2>Estrellas más sorteadas</h2></div></div><div id="starStats" class="frequency-list"></div></article>
+        </section>
+      </section>
+
+      <section id="historial" class="view">
+        <section class="panel"><div class="panel-title"><div><p class="eyebrow">SORTEOS OFICIALES</p><h2>Historial</h2></div><span class="pill">Actualización diaria</span></div><div id="historyList" class="history-list"></div></section>
+      </section>
+
+      <section id="global" class="view">
+        <section class="panel"><div class="panel-title"><div><p class="eyebrow">RANKING</p><h2>Premios por amigo y año</h2><p class="panel-copy">Solo incluye importes personales cotejados oficialmente.</p></div></div><div id="globalRanking" class="table-wrap"></div></section>
+        <section class="panel"><div class="panel-title"><div><p class="eyebrow">PREMIO TOTAL</p><h2 id="globalPrizeTotal">0,00&nbsp;€</h2><p class="panel-copy">Suma de todos los premios personales verificados.</p></div></div></section>
+        <section class="two-columns">
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">VUESTRAS COMBINACIONES</p><h2>Números más acertados</h2></div></div><div id="ourNumberFrequency" class="frequency-list"></div></article>
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">VUESTRAS COMBINACIONES</p><h2>Estrellas más acertadas</h2></div></div><div id="ourStarFrequency" class="frequency-list"></div></article>
+        </section>
+        <section class="two-columns">
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">TODOS LOS SORTEOS</p><h2>Números más sorteados</h2></div></div><div id="globalNumberFrequency" class="frequency-list"></div></article>
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">TODOS LOS SORTEOS</p><h2>Estrellas más sorteadas</h2></div></div><div id="globalStarFrequency" class="frequency-list"></div></article>
+        </section>
+      </section>
+    </main>
+    <template id="emptyState"><div class="empty"><strong>Aún no hay resultados disponibles.</strong><span>La aplicación los incorporará desde la fuente oficial de SELAE.</span></div></template>
+    <script src="app.js"></script>
+  </body>
+</html>

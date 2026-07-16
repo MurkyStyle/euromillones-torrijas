@@ -1,0 +1,174 @@
+.ranking-table .rank-row {
+  background: linear-gradient(90deg, var(--rank-color), transparent 72%);
+}
+
+.ranking-table .rank-row td {
+  border-bottom-color: rgba(97, 73, 217, .12);
+}
+
+.rank-position {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--rank-color);
+  color: #243129;
+  font-size: .77rem;
+  font-weight: 850;
+}
+
+.rank-position.medal,
+.rank-position.lantern {
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.rank-position.lantern {
+  filter: saturate(1.35);
+}
+
+.rank-total {
+  color: var(--violet-dark);
+  font-size: .95rem;
+}
+
+.global-total-row td {
+  border-top: 2px solid #70869a;
+  border-bottom: 0;
+  color: #f1f5fb;
+  font-weight: 850;
+  background: rgba(112, 134, 154, .14);
+}
+
+.draw-card.has-prize {
+  background: #ecfbf3;
+  border-color: #9cddba;
+}
+
+.draw-card.has-prize .draw-head span,
+.draw-card.has-prize .winners {
+  color: #137447;
+  font-weight: 750;
+}
+
+.season-panel {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.season-panel h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: -.035em;
+}
+
+.season-panel p:not(.eyebrow) {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.season-control {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  min-width: 320px;
+}
+
+.season-control label {
+  flex: 1;
+}
+
+.year-panel h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: -.035em;
+}
+
+.year-panel p:not(.eyebrow) {
+  margin: 8px 0 16px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.year-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 128px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.year-tab {
+  border: 1px solid #ddd9f8;
+  background: #fff;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: .83rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.year-tab.active {
+  background: var(--violet-dark);
+  border-color: var(--violet-dark);
+  color: #fff;
+}
+
+.panel-copy {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+/* Tema nocturno: más contraste y menos brillo para una lectura cómoda. */
+:root {
+  --ink: #edf3fb;
+  --muted: #adbacb;
+  --paper: #16212b;
+  --card: #202d39;
+  --line: #37495b;
+  --violet: #b6a8ff;
+  --violet-dark: #ded8ff;
+  --green: #39c887;
+}
+
+body {
+  background: radial-gradient(circle at top, #273847 0, var(--paper) 48%);
+}
+
+.secondary { background: #344658; color: #f0f5fb; }
+.secondary:hover { background: #42586d; }
+.primary { background: #8d7ae6; }
+.primary:hover { background: #a898f2; }
+.stat-card, .panel { box-shadow: 0 10px 28px rgba(0, 0, 0, .14); }
+.pill { background: #4b4024; color: #ffe19a; }
+.player-card, .draw-card { background: #1c2833; }
+.ball { background: #35485b; color: #eeeaff; }
+.ball.star { background: #4e4327; color: #ffe4a0; }
+input { background: #17222c; border-color: #4a5c6d; color: var(--ink); }
+.stars input { background: #2d281c; }
+.prize-inputs label { background: #263441; }
+.frequency-row .track { background: #344555; }
+.frequency-row .fill { background: linear-gradient(90deg, #8f7feb, #b6a8ff); }
+.year-tab { background: #273644; border-color: #4b6072; color: #d6e0ec; }
+.year-tab.active { background: #8d7ae6; border-color: #8d7ae6; color: #fff; }
+.ranking-table .rank-row td { border-bottom-color: rgba(204, 219, 236, .13); }
+.rank-total { color: #e8e4ff; }
+.draw-card.has-prize { background: #1d3b32; border-color: #4d9b73; }
+.draw-card.has-prize .draw-head span, .draw-card.has-prize .winners { color: #9ce4bb; }
+
+@media (max-width: 750px) {
+  .season-panel,
+  .season-control {
+    align-items: stretch;
+    flex-direction: column;
+    min-width: 0;
+  }
+}
