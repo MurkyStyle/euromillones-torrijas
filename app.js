@@ -80,7 +80,8 @@ const officialDraws=currentResults.map(row=>{const [date,numbers,stars]=row.spli
 const savedDraws=JSON.parse(localStorage.getItem('euromillonesDraws')||'[]').filter(draw=>draw.date>='2025-01-01');
 localStorage.setItem('euromillonesDraws',JSON.stringify(savedDraws));
 let draws=[...officialDraws,...savedDraws.filter(saved=>!officialDraws.some(official=>official.date===saved.date))];
-const accountStartDate='2026-07-16';
+// El saldo ya incluye la apuesta del 17/07/2026; el siguiente cargo será el 27/07.
+const accountStartDate='2026-07-20';
 const accountStartBalance=86.01;
 const drawFromRemote=item=>({date:item.date,numbers:item.numbers.map(Number),stars:item.stars.map(Number),revenue:0,prizes:item.prizes||{},matches:getMatches(item.numbers.map(Number),item.stars.map(Number)),official:true,source:item.source||'Actualización automática'});
 async function loadLatestResults(){try{const response=await fetch('./data/results.json',{cache:'no-store'});if(!response.ok)return;const data=await response.json();if(!Array.isArray(data.draws))return;const remoteDraws=data.draws.map(drawFromRemote);const combined=new Map([...officialDraws,...remoteDraws,...savedDraws].map(draw=>[draw.date,draw]));draws=[...combined.values()];render();checkPrizeNotification();checkLowBalanceNotification()}catch{}}
