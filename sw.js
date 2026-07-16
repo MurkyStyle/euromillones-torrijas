@@ -1,4 +1,4 @@
-const CACHE_NAME='torrijas-pwa-v1';
+const CACHE_NAME='torrijas-pwa-v4';
 const APP_FILES=['./','./index.html','./styles.css','./ranking.css','./app.js','./manifest.webmanifest','./icons/torrijas-icon.svg'];
 
 self.addEventListener('install',event=>{
@@ -11,6 +11,10 @@ self.addEventListener('activate',event=>{
 
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
+  if(new URL(event.request.url).pathname.endsWith('/data/results.json')){
+    event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));return response}).catch(()=>caches.match(event.request)));
+    return;
+  }
   event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{
     const copy=response.clone();
     caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));
