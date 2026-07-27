@@ -3,7 +3,7 @@ const players=[
   {name:'Karim',numbers:[7,9,13,23,26],stars:[7,9],avatar:'assets/avatars/karim.png',paid:true},
   {name:'Piti',numbers:[3,17,23,35,49],stars:[5,8],avatar:'assets/avatars/piti.png',paid:true},
   {name:'Grego',numbers:[9,23,25,30,31],stars:[3,7],avatar:'assets/avatars/grego.png',paid:true},
-  {name:'Rosky',numbers:[9,17,22,28,49],stars:[1,3],avatar:'assets/avatars/rosky.png'},
+  {name:'Rosky',numbers:[9,17,22,28,49],stars:[1,3],avatar:'assets/avatars/rosky.png',paid:true},
   {name:'Irish',numbers:[6,7,18,22,50],stars:[7,12],avatar:'assets/avatars/irish.png'}
 ];
 const officialResults=`2025-12-05|9,15,25,34,46|8,12
