@@ -1,4 +1,4 @@
-const CACHE_NAME='torrijas-pwa-v18';
+const CACHE_NAME='torrijas-pwa-v19';
 const APP_FILES=['./','./index.html','./styles.css','./ranking.css','./app.js','./manifest.webmanifest','./icons/torrijas-icon.svg','./assets/avatars/manolax.png','./assets/avatars/karim.png','./assets/avatars/piti.png','./assets/avatars/grego.png','./assets/avatars/rosky.png','./assets/avatars/irish.png'];
 
 self.addEventListener('install',event=>{
@@ -13,6 +13,11 @@ self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
   if(new URL(event.request.url).pathname.endsWith('/data/results.json')){
     event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));return response}).catch(()=>caches.match(event.request)));
+    return;
+  }
+  const pathname=new URL(event.request.url).pathname;
+  if(event.request.mode==='navigate'||/\.(?:html|css|js|webmanifest|svg)$/.test(pathname)){
+    event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));return response}).catch(()=>caches.match(event.request).then(cached=>cached||caches.match('./index.html'))));
     return;
   }
   event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{
