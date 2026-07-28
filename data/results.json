@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T21:00:14.246Z",
+  "updatedAt": "2026-07-28T21:04:54.080Z",
   "draws": [
     {
       "date": "2026-07-10",
@@ -77,6 +77,22 @@
       "stars": [
         1,
         4
+      ],
+      "prizes": {},
+      "source": "Lotería API · resultados de SELAE"
+    },
+    {
+      "date": "2026-07-28",
+      "numbers": [
+        7,
+        5,
+        49,
+        24,
+        30
+      ],
+      "stars": [
+        10,
+        11
       ],
       "prizes": {},
       "source": "Lotería API · resultados de SELAE"
