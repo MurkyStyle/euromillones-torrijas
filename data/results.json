@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-04T21:10:34.387Z",
+  "updatedAt": "2026-08-07T20:37:58.147Z",
   "draws": [
     {
       "date": "2026-07-10",
@@ -131,6 +131,22 @@
       "prizes": {
         "Grego": 4.45
       },
+      "source": "Lotería API · resultados de SELAE"
+    },
+    {
+      "date": "2026-08-07",
+      "numbers": [
+        35,
+        26,
+        29,
+        47,
+        38
+      ],
+      "stars": [
+        1,
+        2
+      ],
+      "prizes": {},
       "source": "Lotería API · resultados de SELAE"
     }
   ]
