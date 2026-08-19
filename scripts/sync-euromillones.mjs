@@ -51,7 +51,18 @@ for(const player of players){
 }
 
 const existing=JSON.parse(await readFile(DATA_FILE,'utf8'));
-const updated=new Map((existing.draws||[]).map(draw=>[draw.date,draw]));
+// Conserva en el archivo de datos el histórico ya validado de la aplicación.
+// Así las actualizaciones nuevas nunca sustituyen ni ocultan premios previos.
+const appSource=await readFile('app.js','utf8');
+const resultsText=appSource.match(/const officialResults=`([\s\S]*?)`;/)?.[1];
+const prizesText=appSource.match(/const officialPrizes=({[\s\S]*?});\s*function getMatches/)?.[1];
+if(!resultsText||!prizesText)throw new Error('No se pudo leer el histórico validado de la aplicación.');
+const knownPrizes=Function(`return (${prizesText})`)();
+const knownDraws=resultsText.trim().split('\n').map(row=>{
+  const [knownDate,main,lucky]=row.split('|');
+  return {date:knownDate,numbers:main.split(',').map(Number),stars:lucky.split(',').map(Number),prizes:knownPrizes[knownDate]||{},source:'SELAE'};
+});
+const updated=new Map([...knownDraws,...(existing.draws||[])].map(draw=>[draw.date,draw]));
 updated.set(date,{date,numbers,stars,prizes,source:'euromillones.com.es'});
 const draws=[...updated.values()].sort((a,b)=>a.date.localeCompare(b.date));
 if(JSON.stringify(draws)!==JSON.stringify(existing.draws||[])){
