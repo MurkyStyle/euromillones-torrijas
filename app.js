@@ -86,7 +86,7 @@ const accountStartBalance=208.48;
 const accountTopUps=[];
 const accountSettledWeeklyCosts=0;
 const drawFromRemote=item=>({date:item.date,numbers:item.numbers.map(Number),stars:item.stars.map(Number),revenue:0,prizes:item.prizes||{},matches:getMatches(item.numbers.map(Number),item.stars.map(Number)),official:true,source:item.source||'Actualización automática'});
-async function loadLatestResults(){try{const response=await fetch('./data/results.json',{cache:'no-store'});if(!response.ok)return;const data=await response.json();if(!Array.isArray(data.draws))return;const remoteDraws=data.draws.map(drawFromRemote);const combined=new Map([...officialDraws,...remoteDraws,...savedDraws].map(draw=>[draw.date,draw]));draws=[...combined.values()];render();checkPrizeNotification();checkLowBalanceNotification()}catch{}}
+async function loadLatestResults(){try{const response=await fetch('./data/results.json',{cache:'no-store'});if(!response.ok)return;const data=await response.json();if(!Array.isArray(data.draws))return;const remoteDraws=data.draws.map(drawFromRemote);const combined=new Map([...savedDraws,...officialDraws,...remoteDraws].map(draw=>[draw.date,draw]));draws=[...combined.values()];render();checkPrizeNotification();checkLowBalanceNotification()}catch{}}
 let seasonStart=localStorage.getItem('euromillonesSeasonStart')||'2025-12-05';
 const activeDraws=()=>draws.filter(d=>d.date>=seasonStart);
 const euro=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n||0);
