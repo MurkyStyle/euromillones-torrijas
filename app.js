@@ -121,7 +121,7 @@ function render(){renderYearTabs();renderPlayers();renderAccountBalance();render
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab,.view').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelector('#'+t.dataset.view).classList.add('active')}));
 document.querySelector('#seasonStart').value=seasonStart;
 document.querySelector('#saveSeason').addEventListener('click',()=>{const value=document.querySelector('#seasonStart').value;if(!value){alert('Elige la fecha de inicio de la temporada.');return}seasonStart=value;localStorage.setItem('euromillonesSeasonStart',seasonStart);localStorage.removeItem('euromillonesScope');render()});
-if('serviceWorker' in navigator)window.addEventListener('load',()=>{let refreshing=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!refreshing){refreshing=true;window.location.reload()}});navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();setInterval(()=>registration.update(),60*60*1000)}).catch(()=>{})});
+if('serviceWorker' in navigator)window.addEventListener('load',()=>{let refreshing=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!refreshing){refreshing=true;window.location.reload()}});navigator.serviceWorker.register('./sw.js?v=20260819-2',{updateViaCache:'none'}).then(registration=>{registration.update();setInterval(()=>registration.update(),60*60*1000)}).catch(()=>{})});
 render();
 checkPrizeNotification();
 checkLowBalanceNotification();
