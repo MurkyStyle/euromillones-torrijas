@@ -1,187 +1,21 @@
 {
-  "updatedAt": "2026-08-14T20:27:48.671Z",
+  "updatedAt": "2026-08-19T09:07:38.239Z",
   "draws": [
     {
-      "date": "2026-07-10",
+      "date": "2026-08-18",
       "numbers": [
-        2,
-        28,
-        14,
-        33,
-        48
-      ],
-      "stars": [
-        8,
-        10
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-07-14",
-      "numbers": [
-        42,
-        10,
-        19,
-        37,
-        47
-      ],
-      "stars": [
-        9,
-        12
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-07-17",
-      "numbers": [
-        34,
-        21,
-        40,
-        12,
-        23
-      ],
-      "stars": [
-        9,
-        10
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-07-21",
-      "numbers": [
-        39,
-        8,
-        28,
-        2,
-        3
-      ],
-      "stars": [
-        2,
-        11
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-07-24",
-      "numbers": [
-        47,
-        30,
-        10,
-        36,
-        8
-      ],
-      "stars": [
-        1,
-        4
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-07-28",
-      "numbers": [
-        7,
-        5,
-        49,
-        24,
-        30
-      ],
-      "stars": [
-        10,
-        11
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-07-31",
-      "numbers": [
-        10,
-        25,
-        31,
-        24,
-        45
-      ],
-      "stars": [
-        4,
-        5
-      ],
-      "prizes": {
-        "Grego": 4.11
-      },
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-08-04",
-      "numbers": [
-        25,
-        50,
-        34,
-        46,
-        30
-      ],
-      "stars": [
-        1,
-        12
-      ],
-      "prizes": {
-        "Grego": 4.45
-      },
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-08-07",
-      "numbers": [
-        35,
-        26,
-        29,
-        47,
-        38
-      ],
-      "stars": [
-        1,
-        2
-      ],
-      "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-08-11",
-      "numbers": [
-        48,
-        17,
-        11,
         3,
-        46
+        9,
+        38,
+        40,
+        50
       ],
       "stars": [
-        1,
-        2
-      ],
-      "prizes": {
-        "Piti": 3.91
-      },
-      "source": "Lotería API · resultados de SELAE"
-    },
-    {
-      "date": "2026-08-14",
-      "numbers": [
-        29,
-        5,
-        39,
-        49,
-        48
-      ],
-      "stars": [
-        4,
-        8
+        6,
+        10
       ],
       "prizes": {},
-      "source": "Lotería API · resultados de SELAE"
+      "source": "euromillones.com.es"
     }
   ]
 }
