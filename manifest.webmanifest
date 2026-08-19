@@ -3,7 +3,7 @@
   "short_name": "Torrijas",
   "description": "Resultados, premios y estadísticas de Euromillones para Los Torrijas.",
   "lang": "es",
-  "start_url": "./?v=20260819-2",
+  "start_url": "./?v=20260819-3",
   "display": "standalone",
   "background_color": "#16212b",
   "theme_color": "#16212b",
