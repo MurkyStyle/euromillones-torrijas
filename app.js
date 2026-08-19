@@ -80,9 +80,9 @@ const officialDraws=currentResults.map(row=>{const [date,numbers,stars]=row.spli
 const savedDraws=JSON.parse(localStorage.getItem('euromillonesDraws')||'[]').filter(draw=>draw.date>='2025-01-01');
 localStorage.setItem('euromillonesDraws',JSON.stringify(savedDraws));
 let draws=[...officialDraws,...savedDraws.filter(saved=>!officialDraws.some(official=>official.date===saved.date))];
-// Saldo conciliado tras la apuesta de la semana actual.
-const accountStartDate='2026-07-27';
-const accountStartBalance=286.01;
+// Saldo conciliado de la Lotobolsa tras las apuestas ya realizadas.
+const accountStartDate='2026-08-19';
+const accountStartBalance=208.48;
 const accountTopUps=[];
 const accountSettledWeeklyCosts=0;
 const drawFromRemote=item=>({date:item.date,numbers:item.numbers.map(Number),stars:item.stars.map(Number),revenue:0,prizes:item.prizes||{},matches:getMatches(item.numbers.map(Number),item.stars.map(Number)),official:true,source:item.source||'Actualización automática'});
