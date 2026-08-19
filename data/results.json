@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T09:40:32.218Z",
+  "updatedAt": "2026-08-19T10:49:07.545Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -675,9 +675,7 @@
         2,
         7
       ],
-      "prizes": {
-        "Irish": 4.62
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -1127,9 +1125,7 @@
         8,
         10
       ],
-      "prizes": {
-        "Irish": 3.86
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -1180,9 +1176,7 @@
         4,
         7
       ],
-      "prizes": {
-        "Irish": 5.67
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -1462,9 +1456,7 @@
         6,
         7
       ],
-      "prizes": {
-        "Irish": 4.17
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -1480,9 +1472,7 @@
         1,
         2
       ],
-      "prizes": {
-        "Irish": 4.05
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -2016,9 +2006,7 @@
         6,
         11
       ],
-      "prizes": {
-        "Irish": 3.65
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -2381,9 +2369,7 @@
         6,
         11
       ],
-      "prizes": {
-        "Irish": 3.87
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -2670,8 +2656,7 @@
         4
       ],
       "prizes": {
-        "Manolax": 4.26,
-        "Irish": 3.4
+        "Manolax": 4.26
       },
       "source": "euromillones.com"
     },
@@ -2966,9 +2951,7 @@
         2,
         8
       ],
-      "prizes": {
-        "Irish": 7.12
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -3050,9 +3033,7 @@
         1,
         7
       ],
-      "prizes": {
-        "Irish": 4.91
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -3120,8 +3101,7 @@
         11
       ],
       "prizes": {
-        "Rosky": 3.87,
-        "Irish": 3.87
+        "Rosky": 3.87
       },
       "source": "euromillones.com"
     },
@@ -3306,9 +3286,7 @@
         2,
         6
       ],
-      "prizes": {
-        "Irish": 4.47
-      },
+      "prizes": {},
       "source": "euromillones.com"
     },
     {
@@ -3502,8 +3480,7 @@
       ],
       "prizes": {
         "Manolax": 4.96,
-        "Rosky": 4.21,
-        "Irish": 4.96
+        "Rosky": 4.21
       },
       "source": "euromillones.com"
     },
@@ -11638,4 +11615,4 @@
       "source": "euromillones.com.es"
     }
   ]
-}
+}\n
