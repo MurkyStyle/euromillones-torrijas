@@ -2,7 +2,8 @@ name: Actualizar resultados de Euromillones
 
 on:
   schedule:
-    - cron: '0,30 20-22 * * 2,5'
+    # Un único intento, tras la publicación habitual del resultado.
+    - cron: '30 22 * * 2,5'
   workflow_dispatch:
 
 permissions:
@@ -15,10 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
       - name: Consultar y calcular resultados
-        env:
-          LOTTERY_API_KEY: ${{ secrets.LOTTERY_API_KEY }}
         run: node scripts/sync-euromillones.mjs
       - name: Publicar cambios si hay novedades
         run: |
