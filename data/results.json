@@ -1,6 +1,1084 @@
 {
-  "updatedAt": "2026-08-19T09:07:38.239Z",
+  "updatedAt": "2026-08-19T09:13:09.339Z",
   "draws": [
+    {
+      "date": "2025-12-05",
+      "numbers": [
+        9,
+        15,
+        25,
+        34,
+        46
+      ],
+      "stars": [
+        8,
+        12
+      ],
+      "prizes": {
+        "Grego": 3.94
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-09",
+      "numbers": [
+        2,
+        8,
+        13,
+        29,
+        49
+      ],
+      "stars": [
+        2,
+        11
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-12",
+      "numbers": [
+        7,
+        25,
+        30,
+        37,
+        41
+      ],
+      "stars": [
+        5,
+        11
+      ],
+      "prizes": {
+        "Grego": 4.05
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-16",
+      "numbers": [
+        14,
+        16,
+        40,
+        41,
+        44
+      ],
+      "stars": [
+        2,
+        10
+      ],
+      "prizes": {
+        "Manolax": 4.48
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-19",
+      "numbers": [
+        17,
+        21,
+        39,
+        43,
+        44
+      ],
+      "stars": [
+        1,
+        11
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-23",
+      "numbers": [
+        8,
+        26,
+        27,
+        29,
+        44
+      ],
+      "stars": [
+        11,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-26",
+      "numbers": [
+        12,
+        22,
+        32,
+        36,
+        48
+      ],
+      "stars": [
+        3,
+        4
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2025-12-30",
+      "numbers": [
+        11,
+        26,
+        29,
+        34,
+        44
+      ],
+      "stars": [
+        1,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-02",
+      "numbers": [
+        8,
+        27,
+        42,
+        44,
+        46
+      ],
+      "stars": [
+        1,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-06",
+      "numbers": [
+        5,
+        14,
+        17,
+        18,
+        31
+      ],
+      "stars": [
+        10,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-09",
+      "numbers": [
+        1,
+        7,
+        10,
+        26,
+        34
+      ],
+      "stars": [
+        2,
+        4
+      ],
+      "prizes": {
+        "Karim": 3.71
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-13",
+      "numbers": [
+        6,
+        10,
+        18,
+        44,
+        47
+      ],
+      "stars": [
+        2,
+        10
+      ],
+      "prizes": {
+        "Irish": 3.99
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-16",
+      "numbers": [
+        5,
+        17,
+        24,
+        29,
+        50
+      ],
+      "stars": [
+        5,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-20",
+      "numbers": [
+        11,
+        18,
+        19,
+        22,
+        50
+      ],
+      "stars": [
+        1,
+        11
+      ],
+      "prizes": {
+        "Manolax": 3.55,
+        "Irish": 8.5
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-23",
+      "numbers": [
+        4,
+        5,
+        13,
+        21,
+        42
+      ],
+      "stars": [
+        3,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-27",
+      "numbers": [
+        4,
+        23,
+        42,
+        43,
+        47
+      ],
+      "stars": [
+        3,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-01-30",
+      "numbers": [
+        14,
+        18,
+        31,
+        35,
+        46
+      ],
+      "stars": [
+        7,
+        11
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-03",
+      "numbers": [
+        26,
+        27,
+        28,
+        34,
+        37
+      ],
+      "stars": [
+        4,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-06",
+      "numbers": [
+        10,
+        13,
+        20,
+        23,
+        24
+      ],
+      "stars": [
+        6,
+        11
+      ],
+      "prizes": {
+        "Karim": 3.2
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-10",
+      "numbers": [
+        1,
+        17,
+        19,
+        34,
+        42
+      ],
+      "stars": [
+        5,
+        8
+      ],
+      "prizes": {
+        "Piti": 4.88
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-13",
+      "numbers": [
+        9,
+        13,
+        31,
+        37,
+        40
+      ],
+      "stars": [
+        6,
+        9
+      ],
+      "prizes": {
+        "Karim": 5.38,
+        "Grego": 4.08
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-17",
+      "numbers": [
+        1,
+        4,
+        6,
+        10,
+        41
+      ],
+      "stars": [
+        5,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-20",
+      "numbers": [
+        13,
+        24,
+        28,
+        33,
+        35
+      ],
+      "stars": [
+        5,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-24",
+      "numbers": [
+        10,
+        27,
+        40,
+        43,
+        47
+      ],
+      "stars": [
+        6,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-02-27",
+      "numbers": [
+        14,
+        24,
+        27,
+        39,
+        42
+      ],
+      "stars": [
+        6,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-03",
+      "numbers": [
+        6,
+        7,
+        24,
+        34,
+        50
+      ],
+      "stars": [
+        5,
+        7
+      ],
+      "prizes": {
+        "Irish": 11.32
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-06",
+      "numbers": [
+        15,
+        16,
+        19,
+        28,
+        37
+      ],
+      "stars": [
+        6,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-10",
+      "numbers": [
+        12,
+        14,
+        27,
+        44,
+        50
+      ],
+      "stars": [
+        4,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-13",
+      "numbers": [
+        13,
+        17,
+        26,
+        41,
+        48
+      ],
+      "stars": [
+        4,
+        10
+      ],
+      "prizes": {
+        "Karim": 3.77
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-17",
+      "numbers": [
+        5,
+        17,
+        28,
+        33,
+        41
+      ],
+      "stars": [
+        3,
+        9
+      ],
+      "prizes": {
+        "Rosky": 5.03
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-20",
+      "numbers": [
+        5,
+        12,
+        16,
+        37,
+        46
+      ],
+      "stars": [
+        8,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-24",
+      "numbers": [
+        12,
+        16,
+        17,
+        18,
+        27
+      ],
+      "stars": [
+        1,
+        3
+      ],
+      "prizes": {
+        "Rosky": 6.77
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-27",
+      "numbers": [
+        4,
+        10,
+        43,
+        44,
+        48
+      ],
+      "stars": [
+        2,
+        4
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-03-31",
+      "numbers": [
+        5,
+        8,
+        10,
+        33,
+        38
+      ],
+      "stars": [
+        2,
+        7
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-03",
+      "numbers": [
+        8,
+        27,
+        29,
+        46,
+        49
+      ],
+      "stars": [
+        2,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-07",
+      "numbers": [
+        11,
+        14,
+        19,
+        36,
+        49
+      ],
+      "stars": [
+        6,
+        7
+      ],
+      "prizes": {
+        "Manolax": 5.15
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-10",
+      "numbers": [
+        10,
+        13,
+        14,
+        38,
+        41
+      ],
+      "stars": [
+        6,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-14",
+      "numbers": [
+        1,
+        2,
+        4,
+        28,
+        44
+      ],
+      "stars": [
+        5,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-17",
+      "numbers": [
+        22,
+        23,
+        28,
+        41,
+        47
+      ],
+      "stars": [
+        6,
+        8
+      ],
+      "prizes": {
+        "Rosky": 4.23
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-21",
+      "numbers": [
+        13,
+        16,
+        29,
+        40,
+        47
+      ],
+      "stars": [
+        3,
+        4
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-24",
+      "numbers": [
+        25,
+        26,
+        30,
+        40,
+        45
+      ],
+      "stars": [
+        1,
+        5
+      ],
+      "prizes": {
+        "Grego": 4.42
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-04-28",
+      "numbers": [
+        26,
+        29,
+        41,
+        46,
+        47
+      ],
+      "stars": [
+        8,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-01",
+      "numbers": [
+        3,
+        9,
+        42,
+        46,
+        47
+      ],
+      "stars": [
+        1,
+        11
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-05",
+      "numbers": [
+        3,
+        4,
+        8,
+        20,
+        31
+      ],
+      "stars": [
+        6,
+        8
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-08",
+      "numbers": [
+        2,
+        17,
+        19,
+        34,
+        37
+      ],
+      "stars": [
+        8,
+        11
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-12",
+      "numbers": [
+        4,
+        26,
+        32,
+        35,
+        36
+      ],
+      "stars": [
+        5,
+        7
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-15",
+      "numbers": [
+        3,
+        10,
+        38,
+        41,
+        43
+      ],
+      "stars": [
+        2,
+        9
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-19",
+      "numbers": [
+        2,
+        12,
+        20,
+        38,
+        45
+      ],
+      "stars": [
+        2,
+        5
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-22",
+      "numbers": [
+        6,
+        22,
+        26,
+        31,
+        37
+      ],
+      "stars": [
+        5,
+        8
+      ],
+      "prizes": {
+        "Irish": 4.13
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-26",
+      "numbers": [
+        6,
+        23,
+        25,
+        35,
+        37
+      ],
+      "stars": [
+        6,
+        12
+      ],
+      "prizes": {
+        "Piti": 3.95,
+        "Grego": 3.95
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-05-29",
+      "numbers": [
+        5,
+        14,
+        18,
+        31,
+        35
+      ],
+      "stars": [
+        2,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-02",
+      "numbers": [
+        6,
+        9,
+        17,
+        18,
+        42
+      ],
+      "stars": [
+        7,
+        9
+      ],
+      "prizes": {
+        "Karim": 5.48,
+        "Rosky": 3.76,
+        "Irish": 4.6
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-05",
+      "numbers": [
+        5,
+        6,
+        16,
+        17,
+        49
+      ],
+      "stars": [
+        2,
+        12
+      ],
+      "prizes": {
+        "Piti": 3.72,
+        "Rosky": 3.72
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-09",
+      "numbers": [
+        2,
+        7,
+        23,
+        44,
+        46
+      ],
+      "stars": [
+        3,
+        5
+      ],
+      "prizes": {
+        "Karim": 3.99
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-12",
+      "numbers": [
+        4,
+        7,
+        14,
+        22,
+        23
+      ],
+      "stars": [
+        1,
+        7
+      ],
+      "prizes": {
+        "Manolax": 6.77,
+        "Karim": 4.24,
+        "Irish": 4.24
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-16",
+      "numbers": [
+        18,
+        25,
+        31,
+        37,
+        45
+      ],
+      "stars": [
+        4,
+        9
+      ],
+      "prizes": {
+        "Grego": 4.33
+      },
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-19",
+      "numbers": [
+        8,
+        34,
+        39,
+        41,
+        42
+      ],
+      "stars": [
+        2,
+        7
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-23",
+      "numbers": [
+        3,
+        33,
+        36,
+        45,
+        46
+      ],
+      "stars": [
+        5,
+        6
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-26",
+      "numbers": [
+        6,
+        16,
+        26,
+        34,
+        35
+      ],
+      "stars": [
+        11,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-06-30",
+      "numbers": [
+        1,
+        8,
+        37,
+        44,
+        48
+      ],
+      "stars": [
+        2,
+        6
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-07-03",
+      "numbers": [
+        2,
+        12,
+        17,
+        25,
+        39
+      ],
+      "stars": [
+        1,
+        2
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-07-07",
+      "numbers": [
+        5,
+        29,
+        33,
+        45,
+        47
+      ],
+      "stars": [
+        5,
+        8
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-07-10",
+      "numbers": [
+        2,
+        14,
+        28,
+        33,
+        48
+      ],
+      "stars": [
+        8,
+        10
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
+    {
+      "date": "2026-07-14",
+      "numbers": [
+        10,
+        19,
+        37,
+        42,
+        47
+      ],
+      "stars": [
+        9,
+        12
+      ],
+      "prizes": {},
+      "source": "SELAE"
+    },
     {
       "date": "2026-08-18",
       "numbers": [
