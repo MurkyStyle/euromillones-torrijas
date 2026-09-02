@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T03:48:59.997Z",
+  "updatedAt": "2026-09-02T00:26:00.865Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -11662,6 +11662,22 @@
       "prizes": {
         "Manolax": 3.87
       },
+      "source": "euromillones.com.es"
+    },
+    {
+      "date": "2026-09-01",
+      "numbers": [
+        2,
+        10,
+        23,
+        37,
+        47
+      ],
+      "stars": [
+        3,
+        5
+      ],
+      "prizes": {},
       "source": "euromillones.com.es"
     }
   ]
