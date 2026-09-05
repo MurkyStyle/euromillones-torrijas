@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T00:26:00.865Z",
+  "updatedAt": "2026-09-05T00:18:09.323Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -11676,6 +11676,22 @@
       "stars": [
         3,
         5
+      ],
+      "prizes": {},
+      "source": "euromillones.com.es"
+    },
+    {
+      "date": "2026-09-04",
+      "numbers": [
+        11,
+        12,
+        19,
+        27,
+        46
+      ],
+      "stars": [
+        4,
+        12
       ],
       "prizes": {},
       "source": "euromillones.com.es"
