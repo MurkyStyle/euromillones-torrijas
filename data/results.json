@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T00:43:04.203Z",
+  "updatedAt": "2026-09-19T00:31:41.161Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -11749,6 +11749,24 @@
         "Manolax": 3.49,
         "Rosky": 3.49,
         "Irish": 3.49
+      },
+      "source": "euromillones.com.es"
+    },
+    {
+      "date": "2026-09-18",
+      "numbers": [
+        8,
+        17,
+        25,
+        30,
+        44
+      ],
+      "stars": [
+        2,
+        3
+      ],
+      "prizes": {
+        "Grego": 4.64
       },
       "source": "euromillones.com.es"
     }
