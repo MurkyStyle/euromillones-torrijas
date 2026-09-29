@@ -1,5 +1,5 @@
 const players=[
-  {name:'Manolax',numbers:[7,11,14,16,22],stars:[3,7],avatar:'assets/avatars/manolax.png'},
+  {name:'Manolax',numbers:[7,11,14,16,22],stars:[3,7],avatar:'assets/avatars/manolax.png',paid:true},
   {name:'Karim',numbers:[7,9,13,23,26],stars:[7,9],avatar:'assets/avatars/karim.png',paid:true},
   {name:'Piti',numbers:[3,17,23,35,49],stars:[5,8],avatar:'assets/avatars/piti.png',paid:true},
   {name:'Grego',numbers:[9,23,25,30,31],stars:[3,7],avatar:'assets/avatars/grego.png',paid:true},
@@ -83,7 +83,7 @@ let draws=[...officialDraws,...savedDraws.filter(saved=>!officialDraws.some(offi
 // Saldo conciliado de la Lotobolsa tras las apuestas ya realizadas.
 const accountStartDate='2026-08-19';
 const accountStartBalance=208.48;
-const accountTopUps=[];
+const accountTopUps=[{date:'2026-09-29',amount:260}];
 const accountSettledWeeklyCosts=0;
 const drawFromRemote=item=>({date:item.date,numbers:item.numbers.map(Number),stars:item.stars.map(Number),revenue:0,prizes:item.prizes||{},matches:getMatches(item.numbers.map(Number),item.stars.map(Number)),official:true,source:item.source||'Actualización automática'});
 async function loadLatestResults(){try{const response=await fetch('./data/results.json',{cache:'no-store'});if(!response.ok)return;const data=await response.json();if(!Array.isArray(data.draws))return;const remoteDraws=data.draws.map(drawFromRemote);const combined=new Map([...savedDraws,...officialDraws,...remoteDraws].map(draw=>[draw.date,draw]));draws=[...combined.values()];render();checkPrizeNotification();checkLowBalanceNotification()}catch{}}
