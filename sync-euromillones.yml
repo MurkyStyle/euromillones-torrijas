@@ -1,0 +1,45 @@
+name: Actualizar resultados de Euromillones
+
+on:
+  schedule:
+    # Se ejecuta una vez a las 21:45 de España, tras la publicación habitual.
+    # Los dos horarios UTC cubren el cambio entre horario de verano e invierno.
+    - cron: '45 19 * * 2,5'
+    - cron: '45 20 * * 2,5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - id: horario
+        name: Comprobar horario de publicación en España
+        run: |
+          if [ "$(TZ=Europe/Madrid date +%H)" != "21" ]; then
+            echo "No es el turno de las 21:45 en España; se omite esta ejecución."
+            echo "actualizar=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "actualizar=true" >> "$GITHUB_OUTPUT"
+      - name: Consultar y calcular resultados
+        if: steps.horario.outputs.actualizar == 'true'
+        run: node scripts/sync-euromillones.mjs
+      - name: Publicar cambios si hay novedades
+        if: steps.horario.outputs.actualizar == 'true'
+        run: |
+          if git diff --quiet; then
+            echo "Sin resultados nuevos"
+            exit 0
+          fi
+          git config user.name "Euromillones Torrijas Bot"
+          git config user.email "actions@github.com"
+          git add data/results.json
+          git commit -m "Actualizar resultados de Euromillones"
+          git push
