@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T01:20:23.108Z",
+  "updatedAt": "2026-10-07T01:44:58.979Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -11836,6 +11836,24 @@
       "prizes": {
         "Manolax": 3.45,
         "Irish": 3.45
+      },
+      "source": "euromillones.com.es"
+    },
+    {
+      "date": "2026-10-06",
+      "numbers": [
+        18,
+        22,
+        32,
+        41,
+        48
+      ],
+      "stars": [
+        8,
+        10
+      ],
+      "prizes": {
+        "Irish": 4.38
       },
       "source": "euromillones.com.es"
     }
