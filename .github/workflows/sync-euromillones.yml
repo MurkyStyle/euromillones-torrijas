@@ -2,12 +2,18 @@ name: Actualizar resultados de Euromillones
 
 on:
   schedule:
-    # Un único intento, tras la publicación habitual del resultado.
-    - cron: '30 22 * * 2,5'
+    # Ventana de comprobación: 21:35–21:55 en España, martes y viernes.
+    # Las dos franjas UTC cubren tanto el horario de verano como el de invierno.
+    - cron: '35-59/5 19 * * 2,5'
+    - cron: '35-59/5 20 * * 2,5'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: actualizar-euromillones
+  cancel-in-progress: false
 
 jobs:
   actualizar:
@@ -17,9 +23,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+      - id: horario
+        name: Comprobar horario de publicación en España
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "actualizar=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          hora=$(TZ=Europe/Madrid date +%H)
+          minuto=$(TZ=Europe/Madrid date +%M)
+          if [ "$hora" != "21" ] || [ "$minuto" -lt 35 ] || [ "$minuto" -gt 59 ]; then
+            echo "Fuera de la ventana de publicación; se omite esta ejecución."
+            echo "actualizar=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "actualizar=true" >> "$GITHUB_OUTPUT"
       - name: Consultar y calcular resultados
+        if: steps.horario.outputs.actualizar == 'true'
         run: node scripts/sync-euromillones.mjs
       - name: Publicar cambios si hay novedades
+        if: steps.horario.outputs.actualizar == 'true'
         run: |
           if git diff --quiet; then
             echo "Sin resultados nuevos"
