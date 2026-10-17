@@ -2,10 +2,10 @@ name: Actualizar resultados de Euromillones
 
 on:
   schedule:
-    # Ventana de comprobación: 21:35–21:55 en España, martes y viernes.
-    # Las dos franjas UTC cubren tanto el horario de verano como el de invierno.
-    - cron: '35-59/5 19 * * 2,5'
-    - cron: '35-59/5 20 * * 2,5'
+    # Se consulta desde las 21:20 hasta las 23:50 de España, martes y viernes.
+    # Un reintento cada diez minutos evita perder resultados si GitHub se retrasa.
+    # La comprobación horaria cubre el cambio entre horario de verano e invierno.
+    - cron: '0,10,20,30,40,50 19-22 * * 2,5'
   workflow_dispatch:
 
 permissions:
@@ -32,7 +32,8 @@ jobs:
           fi
           hora=$(TZ=Europe/Madrid date +%H)
           minuto=$(TZ=Europe/Madrid date +%M)
-          if [ "$hora" != "21" ] || [ "$minuto" -lt 35 ] || [ "$minuto" -gt 59 ]; then
+          dia=$(TZ=Europe/Madrid date +%u)
+          if { [ "$dia" != "2" ] && [ "$dia" != "5" ]; } || [ "$hora" -lt 21 ] || [ "$hora" -gt 23 ] || { [ "$hora" = "21" ] && [ "$minuto" -lt 20 ]; }; then
             echo "Fuera de la ventana de publicación; se omite esta ejecución."
             echo "actualizar=false" >> "$GITHUB_OUTPUT"
             exit 0
