@@ -2,9 +2,9 @@ name: Actualizar resultados de Euromillones
 
 on:
   schedule:
-    # Se consulta desde las 21:20 hasta las 23:50 de España, martes y viernes.
-    # Un reintento cada diez minutos evita perder resultados si GitHub se retrasa.
-    # La comprobación horaria cubre el cambio entre horario de verano e invierno.
+    # Se consulta en varios intentos tras el sorteo, martes y viernes.
+    # GitHub puede iniciar un trabajo programado con retraso: el propio trabajo
+    # nunca se descarta por la hora real a la que haya empezado.
     - cron: '0,10,20,30,40,50 19-22 * * 2,5'
   workflow_dispatch:
 
@@ -23,27 +23,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - id: horario
-        name: Comprobar horario de publicación en España
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "actualizar=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          hora=$(TZ=Europe/Madrid date +%H)
-          minuto=$(TZ=Europe/Madrid date +%M)
-          dia=$(TZ=Europe/Madrid date +%u)
-          if { [ "$dia" != "2" ] && [ "$dia" != "5" ]; } || [ "$hora" -lt 21 ] || [ "$hora" -gt 23 ] || { [ "$hora" = "21" ] && [ "$minuto" -lt 20 ]; }; then
-            echo "Fuera de la ventana de publicación; se omite esta ejecución."
-            echo "actualizar=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "actualizar=true" >> "$GITHUB_OUTPUT"
       - name: Consultar y calcular resultados
-        if: steps.horario.outputs.actualizar == 'true'
         run: node scripts/sync-euromillones.mjs
       - name: Publicar cambios si hay novedades
-        if: steps.horario.outputs.actualizar == 'true'
         run: |
           if git diff --quiet; then
             echo "Sin resultados nuevos"
