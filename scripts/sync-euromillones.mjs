@@ -41,15 +41,34 @@ const prizeTable=async token=>{
 };
 
 const html=await getPage(SOURCE_URL);
-const rawDraws=[...html.matchAll(/<li\s+class=["']blq["']>[\s\S]*?<h4>Euromillones\s*-\s*[^,]+,\s*(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})<\/h4>[\s\S]*?<div\s+class=["']numhisto["']>[\s\S]*?<ul>([\s\S]*?)<\/ul>[\s\S]*?<div\s+class=["']cargar["']\s+data-sorteo=["']([^"']+)["']/gi)];
-if(!rawDraws.length)throw new Error('No se encontraron sorteos recientes en la fuente.');
+/*
+ * La fuente ha usado dos formatos: tablas cargadas por data-sorteo y tablas
+ * insertadas directamente en el HTML. Se lee cada bloque delimitado por su
+ * encabezado en lugar de depender de uno de esos detalles de presentación.
+ */
+const headings=[...html.matchAll(/<h4>\s*Euromillones\s*-\s*[^,]+,\s*(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})\s*<\/h4>/gi)];
+if(!headings.length)throw new Error('No se encontraron sorteos recientes en la fuente.');
 
-const recentDraws=rawDraws.map(([,day,monthName,year,combination,token])=>{
+const inlineCategories=block=>{
+  const categories={};
+  for(const row of block.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){
+    const cells=[...row[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map(cell=>cell[1]);
+    const category=stripTags(cells[0]||'').match(/\(\s*(\d+)\s*\+\s*(\d+)\s*\)/);
+    if(category&&cells.length>=2)categories[`${category[1]}+${category[2]}`]=money(cells.at(-1));
+  }
+  return categories;
+};
+
+const recentDraws=headings.map((heading,index)=>{
+  const [,day,monthName,year]=heading;
+  const next=headings[index+1]?.index??html.length;
+  const block=html.slice(heading.index,next);
   const month=monthNumber[monthName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')];
   if(!month)throw new Error(`No se pudo interpretar el mes ${monthName}.`);
-  const values=[...combination.matchAll(/<li\b[^>]*class=["'](?:numeros|estrellas)["'][^>]*>\s*(\d+)\s*<\/li>/gi)].map(match=>Number(match[1]));
+  const values=[...block.matchAll(/<li\b[^>]*class=["'](?:numeros|estrellas)["'][^>]*>\s*(\d+)\s*<\/li>/gi)].map(match=>Number(match[1]));
   if(values.length!==7)throw new Error(`No se pudo leer una combinación completa del ${day}/${month}/${year}.`);
-  return {date:`${year}-${month}-${day.padStart(2,'0')}`,numbers:values.slice(0,5),stars:values.slice(5),token};
+  const token=block.match(/<div\s+class=["']cargar["'][^>]*\sdata-sorteo=["']([^"']+)["']/i)?.[1];
+  return {date:`${year}-${month}-${day.padStart(2,'0')}`,numbers:values.slice(0,5),stars:values.slice(5),categories:inlineCategories(block),token};
 });
 
 const existing=JSON.parse(await readFile(DATA_FILE,'utf8'));
@@ -70,11 +89,17 @@ for(const draw of recentDraws){
     const main=matchCount(player.numbers,draw.numbers),star=matchCount(player.stars,draw.stars);
     return main>=2||(main>=1&&star>=2);
   });
-  const categories=contenders.length?await prizeTable(draw.token):{};
+  let categories=draw.categories;
+  if(contenders.length&&!Object.keys(categories).length&&draw.token)categories=await prizeTable(draw.token);
+  if(contenders.length&&!Object.keys(categories).length){
+    throw new Error(`La tabla de premios del sorteo ${draw.date} todavía no está disponible.`);
+  }
   const prizes={};
   for(const player of contenders){
     const main=matchCount(player.numbers,draw.numbers),star=matchCount(player.stars,draw.stars);
-    const amount=categories[`${main}+${star}`]||0;
+    const category=`${main}+${star}`;
+    if(!(category in categories))throw new Error(`Falta la categoría ${category} en la tabla del sorteo ${draw.date}.`);
+    const amount=categories[category];
     if(amount>0)prizes[player.name]=amount;
   }
   updated.set(draw.date,{date:draw.date,numbers:draw.numbers,stars:draw.stars,prizes,source:'euromillones.com.es'});
