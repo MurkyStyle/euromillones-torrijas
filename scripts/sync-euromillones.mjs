@@ -65,7 +65,10 @@ const recentDraws=headings.map((heading,index)=>{
   const block=html.slice(heading.index,next);
   const month=monthNumber[monthName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')];
   if(!month)throw new Error(`No se pudo interpretar el mes ${monthName}.`);
-  const values=[...block.matchAll(/<li\b[^>]*class=["'](?:numeros|estrellas)["'][^>]*>\s*(\d+)\s*<\/li>/gi)].map(match=>Number(match[1]));
+  // El último sorteo no tiene un encabezado posterior: se limita la lectura
+  // a su lista numhisto para no recoger números del pie de página.
+  const combination=block.match(/<div\s+class=["']numhisto["'][^>]*>[\s\S]*?<ul>([\s\S]*?)<\/ul>/i)?.[1]||'';
+  const values=[...combination.matchAll(/<li\b[^>]*class=["'](?:numeros|estrellas)["'][^>]*>\s*(\d+)\s*<\/li>/gi)].map(match=>Number(match[1]));
   if(values.length!==7)throw new Error(`No se pudo leer una combinación completa del ${day}/${month}/${year}.`);
   const token=block.match(/<div\s+class=["']cargar["'][^>]*\sdata-sorteo=["']([^"']+)["']/i)?.[1];
   return {date:`${year}-${month}-${day.padStart(2,'0')}`,numbers:values.slice(0,5),stars:values.slice(5),categories:inlineCategories(block),token};
