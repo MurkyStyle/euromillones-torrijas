@@ -2,10 +2,10 @@ name: Actualizar resultados de Euromillones
 
 on:
   schedule:
-    # Se consulta en varios intentos tras el sorteo, martes y viernes.
-    # GitHub puede iniciar un trabajo programado con retraso: el propio trabajo
-    # nunca se descarta por la hora real a la que haya empezado.
-    - cron: '0,10,20,30,40,50 19-22 * * 2,5'
+    # 21:23 de España queda cubierto tanto en invierno como en verano.
+    # Las otras dos ejecuciones son respaldo; se evitan los minutos :00,
+    # cuando GitHub puede retrasar o descartar tareas programadas.
+    - cron: '23 19,20,21 * * 2,5'
   workflow_dispatch:
 
 permissions:
@@ -18,13 +18,26 @@ concurrency:
 jobs:
   actualizar:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
       - name: Consultar y calcular resultados
-        run: node scripts/sync-euromillones.mjs
+        run: |
+          # La publicación de premios puede tardar unos minutos tras el sorteo.
+          # Se reintenta dentro de la misma ejecución ante un fallo temporal.
+          for intento in 1 2 3; do
+            if node scripts/sync-euromillones.mjs; then
+              exit 0
+            fi
+            if [ "$intento" -lt 3 ]; then
+              echo "Intento $intento fallido; se reintentará en 10 minutos."
+              sleep 600
+            fi
+          done
+          exit 1
       - name: Publicar cambios si hay novedades
         run: |
           if git diff --quiet; then
