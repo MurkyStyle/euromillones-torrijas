@@ -2,10 +2,11 @@ name: Actualizar resultados de Euromillones
 
 on:
   schedule:
-    # 21:23 de España queda cubierto tanto en invierno como en verano.
-    # Las otras dos ejecuciones son respaldo; se evitan los minutos :00,
-    # cuando GitHub puede retrasar o descartar tareas programadas.
-    - cron: '23 19,20,21 * * 2,5'
+    # La fuente suele consolidar el resultado cerca de las 23:45 (España).
+    # Se repite cada 30 minutos como respaldo. GitHub programa en UTC, por
+    # eso ambas reglas cubren el horario de invierno y el de verano.
+    - cron: '45 21,22,23 * * 2,5'
+    - cron: '15 22,23 * * 2,5'
   workflow_dispatch:
 
 permissions:
