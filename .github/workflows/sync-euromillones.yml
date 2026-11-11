@@ -7,6 +7,9 @@ on:
     # eso ambas reglas cubren el horario de invierno y el de verano.
     - cron: '45 21,22,23 * * 2,5'
     - cron: '15 22,23 * * 2,5'
+    # Red de seguridad: si la fuente publica tarde, se vuelve a comprobar
+    # durante el miércoles y el sábado, hasta la tarde siguiente.
+    - cron: '15 2,5,8,11,14,17 * * 3,6'
   workflow_dispatch:
 
 permissions:
