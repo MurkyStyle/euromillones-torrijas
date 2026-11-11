@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T01:14:08.500Z",
+  "updatedAt": "2026-11-11T12:03:23.477Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -12011,6 +12011,22 @@
       "prizes": {
         "Karim": 5.13
       },
+      "source": "euromillones.com.es"
+    },
+    {
+      "date": "2026-11-10",
+      "numbers": [
+        15,
+        18,
+        31,
+        37,
+        41
+      ],
+      "stars": [
+        1,
+        5
+      ],
+      "prizes": {},
       "source": "euromillones.com.es"
     }
   ]
