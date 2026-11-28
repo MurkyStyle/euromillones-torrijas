@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T04:36:02.283Z",
+  "updatedAt": "2026-11-28T03:31:49.301Z",
   "draws": [
     {
       "date": "2020-01-03",
@@ -12093,6 +12093,22 @@
       "prizes": {
         "Piti": 5.48
       },
+      "source": "euromillones.com.es"
+    },
+    {
+      "date": "2026-11-27",
+      "numbers": [
+        12,
+        17,
+        26,
+        34,
+        38
+      ],
+      "stars": [
+        5,
+        9
+      ],
+      "prizes": {},
       "source": "euromillones.com.es"
     }
   ]
